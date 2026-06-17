@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Mini-Ingenieros | Más de 100 Proyectos en Video</title>
+    <style>
+        :root {
+            --primary: #ea580c; /* Naranja Ingeniero */
+            --primary-dark: #c2410c;
+            --secondary: #0f766e; /* Teal / Verde Azulado oscuro */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --whatsapp: #25D366;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+
+        body { background-color: var(--light); color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+
+        /* Navegación Fija */
+        header { 
+            background: var(--dark); padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); position: sticky; top: 0; z-index: 100; color: white;
+        }
+        .logo { font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 8px; color: var(--primary); }
+        .btn-header { background: var(--primary); color: white; padding: 6px 15px; text-decoration: none; border-radius: 20px; font-weight: bold; font-size: 14px; }
+
+        /* Hero Section (Ajustado para celular) */
+        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #ccfbf1 0%, #ffedd5 100%); }
+        .hero h1 { font-size: 32px; color: var(--dark); margin-bottom: 15px; line-height: 1.2; font-weight: 800; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { font-size: 16px; color: #475569; margin-bottom: 25px; max-width: 600px; margin-inline: auto; font-weight: 500; }
+        
+        /* Botones Call to Action */
+        .btn-large { 
+            display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+            background: var(--whatsapp); color: white; padding: 15px 25px; font-size: 18px; text-decoration: none; 
+            border-radius: 50px; font-weight: bold; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); 
+            transition: transform 0.2s; width: 100%; max-width: 350px; margin: 0 auto;
+        }
+        .btn-large:active { transform: scale(0.95); }
+        .btn-orange { background: var(--primary); box-shadow: 0 8px 20px rgba(234, 88, 12, 0.4); }
+
+        /* La Vitrina de Videos */
+        .video-showcase { padding: 50px 20px; background: white; text-align: center; }
+        .video-showcase h2 { font-size: 26px; color: var(--secondary); margin-bottom: 10px; }
+        .video-showcase p { color: #64748b; margin-bottom: 30px; font-size: 15px; }
+        
+        .video-grid { display: grid; grid-template-columns: 1fr; gap: 30px; max-width: 1000px; margin: 0 auto; }
+        
+        /* Media Query para Escritorio/Tablets */
+        @media (min-width: 768px) {
+            .video-grid { grid-template-columns: repeat(3, 1fr); }
+            .hero h1 { font-size: 42px; }
+            .hero p { font-size: 18px; }
+        }
+
+        .video-card { background: var(--light); border-radius: 15px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.08); border: 1px solid #e2e8f0; text-align: left; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .video-info { padding: 15px; }
+        .video-info h3 { font-size: 18px; color: var(--dark); margin-bottom: 5px; }
+        .video-info p { font-size: 14px; color: #64748b; }
+
+        /* Beneficios */
+        .benefits { padding: 50px 20px; background: var(--dark); color: white; text-align: center; }
+        .benefits h2 { font-size: 28px; margin-bottom: 30px; color: var(--primary); }
+        .benefits-list { text-align: left; max-width: 400px; margin: 0 auto; font-size: 16px; }
+        .benefit-item { display: flex; align-items: flex-start; gap: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; }
+        .benefit-icon { font-size: 30px; line-height: 1; }
+        .benefit-text h4 { color: white; margin-bottom: 5px; font-size: 18px; }
+        .benefit-text p { color: #cbd5e1; font-size: 14px; }
+
+        /* CTA Final y Precio */
+        .cta { padding: 60px 20px; text-align: center; background: white; }
+        .cta h2 { font-size: 28px; margin-bottom: 15px; color: var(--dark); }
+        .price-box { background: #fff7ed; border: 2px dashed var(--primary); padding: 20px; border-radius: 15px; max-width: 350px; margin: 20px auto 30px auto; }
+        .price-tag { font-size: 42px; font-weight: bold; color: var(--primary); margin: 5px 0; }
+        .price-tag span { font-size: 18px; color: #94a3b8; text-decoration: line-through; margin-right: 10px; font-weight: normal; }
+        .urgency { color: #ef4444; font-weight: bold; font-size: 14px; display: block; margin-top: 10px; }
+
+        footer { background: #0f172a; color: #64748b; text-align: center; padding: 20px; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">👷‍♂️ Mini-Ingenieros</div>
+        <a href="#comprar" class="btn-header">Prueba Gratis</a>
+    </header>
+
+    <section class="hero">
+        <h1>Transforma a tu hij@ de "Consumidor" a <span>"Creador"</span> ⚙️</h1>
+        <p>Alimenta su curiosidad con más de 100 proyectos geniales en video paso a paso. Construirán catapultas, robots caseros y circuitos con materiales de casa.</p>
+        <a href="#comprar" class="btn-large btn-orange">
+            ▶️ Ver Proyectos Ahora
+        </a>
+    </section>
+
+    <section class="video-showcase">
+        <h2>Mira lo que pueden construir hoy</h2>
+        <p>Aquí tienes 3 ejemplos de los 100+ videos que incluye la plataforma.</p>
+        
+        <div class="video-grid">
+            <!-- Demo 1 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <!-- Recuerda poner tus enlaces reales aquí -->
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Catapulta de Paletas</h3>
+                    <p>Física básica y diversión lanzando pompones.</p>
+                </div>
+            </div>
+
+            <!-- Demo 2 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Carro a Propulsión</h3>
+                    <p>Usa globos y tapas para enseñar energía cinética.</p>
+                </div>
+            </div>
+
+            <!-- Demo 3 -->
+            <div class="video-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/J---aiyznGQ?controls=0&modestbranding=1&rel=0" allowfullscreen></iframe>
+                </div>
+                <div class="video-info">
+                    <h3>Brazo Robótico Casero</h3>
+                    <p>Ingeniería simple con cartón e inyectadoras.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits">
+        <h2>¿Por qué elegir Mini-Ingenieros?</h2>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <div class="benefit-icon">💡</div>
+                <div class="benefit-text">
+                    <h4>Despierta su Ingenio</h4>
+                    <p>Estimula la lógica, paciencia y motricidad fina lejos de los videojuegos adictivos.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">♻️</div>
+                <div class="benefit-text">
+                    <h4>Materiales de Casa</h4>
+                    <p>No necesitas comprar kits caros. Usamos paletas, cartón, ligas y motores reciclados.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">👨‍👩‍👦</div>
+                <div class="benefit-text">
+                    <h4>Tiempo en Familia</h4>
+                    <p>Crea recuerdos invaluables armando proyectos espectaculares junto a ellos los fines de semana.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="comprar">
+        <h2>¡Inicia su etapa de inventor hoy!</h2>
+        <p style="color: #64748b; max-width: 500px; margin: 0 auto;">Pide tu acceso a la plataforma por WhatsApp. Te daremos un pase gratuito de 48 horas para que armen su primer proyecto.</p>
+        
+        <div class="price-box">
+            <div style="font-size: 14px; font-weight: bold; color: var(--secondary); text-transform: uppercase;">Licencia Vitalicia</div>
+            <div class="price-tag"><span>$25.00</span> $6.99</div>
+            <p style="font-size: 13px; color: #64748b; margin-top: 5px;">(Pago único, acceso a los 100+ videos para siempre)</p>
+            <span class="urgency">⏳ Promo por tiempo limitado</span>
+        </div>
+        
+        <!-- El link pre-diseñado para que llegue al WhatsApp de María -->
+        <a href="https://api.whatsapp.com/send?phone=584265810670&text=Hola!%20Vengo%20de%20la%20página%20web.%20Quisiera%20solicitar%20mi%20Prueba%20Gratis%20de%2048H%20para%20Mini-Ingenieros%20👷‍♂️" target="_blank" class="btn-large">
+            💬 Pedir Prueba por WhatsApp
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Mini-Ingenieros. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
